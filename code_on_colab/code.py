@@ -338,5 +338,4 @@ if __name__ == "__main__":
     print(public_url)
     app.run(port=port)
   finally:
-
     ngrok.disconnect(public_url=public_url)
