@@ -207,9 +207,8 @@ def calculate_distance(left , right , actual_width=30.0):
 saved_path = "/content/models/ssd_mobilenet_v1_fpn_640x640_coco17_tpu-8/saved_model"
 detection_graph = load_model(saved_path)
 
-# mobilenet mnist
+# mobilenet mnist model
 MODEL_PATH = "/content/models/mobilenet_mnist.keras"
-# 讀取模型
 model = load_model_mnist(MODEL_PATH)
 return_data = np.array([])
 
@@ -248,7 +247,7 @@ def root():
         green_mask = cv2.inRange(hsv_image, green_lower, green_upper)
         red_mask = cv2.inRange(hsv_image, red_lower, red_upper)
 
-          # 計算面積
+        # 計算面積
         green_area = cv2.countNonZero(green_mask)
         red_area = cv2.countNonZero(red_mask)
 
@@ -339,4 +338,5 @@ if __name__ == "__main__":
     print(public_url)
     app.run(port=port)
   finally:
+
     ngrok.disconnect(public_url=public_url)
